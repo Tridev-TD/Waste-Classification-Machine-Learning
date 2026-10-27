@@ -1,5 +1,17 @@
+
+# Python virtual environment
 venv/
+.venv/
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Training dataset
 dataset/
+
+# Generated dataset split metadata
 models/splits.json
+
+# Environment variables and secrets
+.env
