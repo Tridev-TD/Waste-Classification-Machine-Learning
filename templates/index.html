@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reclaim — Waste Classification</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <span class="logo">Reclaim</span>
+    <a href="#about" class="link">About</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Give your waste a second life.</h1>
+      <p>Upload a photo of an item and Reclaim will suggest what type of waste it is and how to dispose of it.</p>
+    </section>
+
+    <section class="upload">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop an image">
+        <p><strong>Drag and drop</strong> an image here</p>
+        <p class="muted">or <span class="link">browse files</span> · JPG, PNG or WEBP, up to 5 MB</p>
+        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+      </div>
+
+      <div id="preview-box" class="preview-box" hidden>
+        <img id="preview" alt="Selected waste item">
+        <button id="remove-btn" class="btn-text" type="button">Remove image</button>
+      </div>
+
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="classify-btn" class="btn" type="button" disabled>Classify Waste</button>
+    </section>
+
+    <section id="results" class="results" hidden aria-live="polite">
+      <h2>Result</h2>
+      <p class="muted">Predicted category</p>
+      <p class="category"><span id="category"></span> <span id="confidence" class="muted"></span></p>
+      <ul id="top-list" class="top-list"></ul>
+      <div class="recommendation">
+        <h3>What to do</h3>
+        <p id="recommendation"></p>
+      </div>
+      <p class="muted small">Confidence shows how sure the model is, not whether it is correct. Check unclear items yourself.</p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>Reclaim uses MobileNetV2, a lightweight image-recognition network pretrained on ImageNet. Through transfer learning, its final layers are retrained on a public garbage-classification dataset (TrashNet-style: cardboard, glass, metal, paper, plastic, trash). It is a college micro project, so results are indicative only.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">Reclaim · BTech micro project</footer>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
