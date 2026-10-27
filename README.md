@@ -1,3 +1,8 @@
+   ---
+   title: Reclaim Waste Classifier
+   sdk: docker
+   app_port: 7860
+   ---
 # Reclaim — Waste Classification for Smart Recycling
 
 A small web app that classifies a photo of waste (cardboard, glass, metal, paper, plastic, trash) and shows a disposal tip.
